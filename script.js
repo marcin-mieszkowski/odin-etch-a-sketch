@@ -17,7 +17,19 @@ function createGrid(gridSize) {
 
 gridButton.addEventListener("click", () => {
     gridSize = prompt("Enter new grid size (e.g., 16 for 16x16 grid):", 16);
+    if (gridSize > 100) {
+        alert(
+            "Grid size too large. Please enter a number less than or equal to 100."
+        );
+        return;
+    }
     createGrid(gridSize);
 });
 
 createGrid(gridSize);
+
+gridContainer.addEventListener("mouseover", (event) => {
+    if (event.target.classList.contains("grid")) {
+        event.target.style.backgroundColor = "black";
+    }
+});
